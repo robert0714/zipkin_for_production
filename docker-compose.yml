@@ -26,6 +26,7 @@ services:
       - STORAGE_TYPE=mysql
       # Point the zipkin at the storage backend
       - MYSQL_HOST=mysql
+      - TZ=Asia/Taipei
       # Uncomment to enable scribe
       # - SCRIBE_ENABLED=true
       # Uncomment to enable self-tracing
@@ -54,6 +55,7 @@ services:
       # Add the baked-in username and password for the zipkin-mysql image
       - MYSQL_USER=zipkin
       - MYSQL_PASS=zipkin
+      - TZ=Asia/Taipei
       # Uncomment to see dependency processing logs
       # - ZIPKIN_LOG_LEVEL=DEBUG
       # Uncomment to adjust memory used by the dependencies job
@@ -70,6 +72,8 @@ services:
       - storage
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    environment:
+      - TZ=Asia/Taipei
 
   grafana:
     image: grafana/grafana
@@ -81,6 +85,7 @@ services:
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - TZ=Asia/Taipei
 
   setup_grafana_datasource:
     image: appropriate/curl
