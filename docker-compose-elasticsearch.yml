@@ -24,8 +24,10 @@ services:
       - ES_HOSTS=elasticsearch
       # Uncomment to see requests to and from elasticsearch
       # - ES_HTTP_LOGGING=BODY
+      - TZ=Asia/Taipei
 
   dependencies:
     environment:
       - STORAGE_TYPE=elasticsearch
       - ES_HOSTS=elasticsearch
+      - TZ=Asia/Taipei
