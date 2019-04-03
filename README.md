@@ -5,13 +5,17 @@ https://github.com/openzipkin/docker-zipkin
 
 ## Usage
 
-```
-# If docker is running on your host machine, adjust the kernel setting directly
-$ sudo sysctl -w vm.max_map_count=262144
 
+# If docker is running on your host machine, adjust the kernel setting directly
+```bash
+$ sudo sysctl -w vm.max_map_count=262144
+```
 # If using docker-machine/Docker Toolbox/Boot2Docker, remotely adjust the same
+
+```bash
 $ docker-machine ssh default "sudo sysctl -w vm.max_map_count=262144"
 
+```bash
 $ docker-compose -f docker-compose.yml -f docker-compose-elasticsearch.yml up
 ```
 
