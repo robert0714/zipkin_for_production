@@ -56,3 +56,17 @@ sysctl -w vm.max_map_count=262144
 echo "vm.max_map_count=262144" > /etc/sysctl.conf
 sysctl -p
 ```
+
+## Export Or Load
+
+Save all images with name:tag to one tar file:
+
+```bash
+docker save $(docker images | sed '1d' | awk '{print $1 ":" $2 }') -o allinone.tar
+```
+
+Then, load all images:
+
+```bash
+docker load -i allinone.tar
+```
