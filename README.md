@@ -19,6 +19,7 @@ $ docker-machine ssh default "sudo sysctl -w vm.max_map_count=262144"
 ```bash
 $ docker-compose -f docker-compose.yml -f docker-compose-elasticsearch.yml up
 ```
+After executing the abovr command line , you can use your browser t0 open zipkin which url is http://localhost:9411/zipkin/ 
 
 ## clean volume 
 List:
