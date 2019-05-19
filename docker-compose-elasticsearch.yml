@@ -4,7 +4,7 @@
 # It extends the default configuration from docker-compose.yml to run the
 # zipkin-elasticsearch container instead of the zipkin-mysql container.
 
-version: '2'
+version: '3.7'
 
 services:
   # Run Elasticsearch instead of MySQL
@@ -14,6 +14,13 @@ services:
     # Uncomment to expose the storage port for testing
     # ports:
     #   - 9200:9200
+    privileged: true         
+    sysctls:
+      net.core.somaxconn: '511' 
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1 
 
   # Switch storage type to Elasticsearch
   zipkin:
